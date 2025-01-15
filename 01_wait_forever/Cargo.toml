@@ -1,0 +1,30 @@
+[package]
+name = "R-207"
+version = "0.1.0"
+authors = ["207 <wayne.xie207@gmail.com>"]
+edition = "2021"
+
+# lto: 启用链接时优化（Link Time Optimization）。
+[profile.release]
+lto = true
+panic = "abort"
+
+[profile.dev]
+panic = "abort"
+
+
+[features]
+default = []
+bsp_rpi3 = []
+bsp_rpi4 = []
+
+[[bin]]
+name = "kernel"
+path = "src/main.rs"
+
+##--------------------------------------------------------------------------------------------------
+## Dependencies
+##--------------------------------------------------------------------------------------------------
+
+[dependencies]
+some_crate = "0.2.1"

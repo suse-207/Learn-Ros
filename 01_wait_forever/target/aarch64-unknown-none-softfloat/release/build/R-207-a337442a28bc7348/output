@@ -1,0 +1,1 @@
+cargo:rerun-if-changed=/workspaces/R-os/01_wait_forever/src/bsp/raspberrypi/kernel.ld
