@@ -1,0 +1,1 @@
+cargo:rerun-if-changed=/workspaces/R-os/02_runtime_init/src/bsp/raspberrypi/kernel.ld
