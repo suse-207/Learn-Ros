@@ -41,8 +41,8 @@ _start:
 	// If execution reaches here, it is the boot core
 
 	// Initialize DRAM.
-	ADR_REL x0, _bss_start
-	ADR_REL x1, _bss_end_exclusive
+	ADR_REL x0, __bss_start
+	ADR_REL x1, __bss_end_exclusive
 
 .L_bss_init_loop:
 	cmp 	x0,x1
