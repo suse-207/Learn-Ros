@@ -9,3 +9,6 @@ target/
 
 #忽略 CArgo.lock
 Cargo.lock
+
+#忽略.img
+kernel8.img
