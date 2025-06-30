@@ -24,35 +24,42 @@ impl List {
             elem: elem,
             next: mem::replace(&mut self.head, Link::Empty),
         });
-
+    
         self.head = Link::More(new_node);
     }
 
     pub fn pop(&mut self) -> Option<i32> {
         match mem::replace(&mut self.head, Link::Empty) {
             Link::Empty => None,
+
             Link::More(node) => {
                 self.head = node.next;
                 Some(node.elem)
             }
         }
     }
+    
+    
 }
 
 impl Drop for List {
     fn drop(&mut self) {
+         // 1. 将 head 替换为 Empty，获取原 head 的所有权
         let mut cur_link = mem::replace(&mut self.head, Link::Empty);
-
+        
+        // 2. 循环处理每个节点
         while let Link::More(mut boxed_node) = cur_link {
+            // 3. 将当前节点的next替换为Empty,并获取原next的所有权
             cur_link = mem::replace(&mut boxed_node.next, Link::Empty);
+            // 4. boxed_node 在此作用域结束时被动释放
         }
+        // 5. 当循环结束时，所有节点 都被正确释放
     }
 }
 
 #[cfg(test)]
 mod test {
-    use super::List;
-
+    use super::*;
     #[test]
     fn basics() {
         let mut list = List::new();
