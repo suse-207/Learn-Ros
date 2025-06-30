@@ -1,0 +1,11 @@
+*.log
+
+# 忽略编译输出
+*.o
+*.exe
+
+# 忽略 Node.js 的依赖包目录
+target/
+
+#忽略 CArgo.lock
+Cargo.lock
